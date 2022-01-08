@@ -1,9 +1,10 @@
+mod camera;
+mod components;
 mod map;
 mod map_builder;
-mod camera;
-mod systems;
 mod spawner;
-mod components;
+mod systems;
+
 mod prelude {
     pub use bracket_lib::prelude::*;
     pub use::legion::*;
@@ -54,6 +55,7 @@ impl GameState for State {
         ctx.cls();
         self.resources.insert(ctx.key);
         self.systems.execute(&mut self.ecs, &mut self.resources);
+        render_draw_buffer(ctx).expect("Render error");
         // TODO Render Draw buffer
 
     }
