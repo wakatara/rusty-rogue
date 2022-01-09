@@ -1,5 +1,5 @@
 [package]
-name = "dungeoncrawler"
+name = "rusty_rogue"
 version = "0.1.0"
 authors = ["Daryl Manning <dwm@wakatara.com>"]
 edition = "2021"

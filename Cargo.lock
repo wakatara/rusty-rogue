@@ -577,14 +577,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 
 [[package]]
-name = "dungeoncrawler"
-version = "0.1.0"
-dependencies = [
- "bracket-lib",
- "legion",
-]
-
-[[package]]
 name = "either"
 version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1486,6 +1478,14 @@ checksum = "dc7c727aded0be18c5b80c1640eae0ac8e396abf6fa8477d96cb37d18ee5ec59"
 dependencies = [
  "ab_glyph_rasterizer",
  "owned_ttf_parser",
+]
+
+[[package]]
+name = "rusty_rogue"
+version = "0.1.0"
+dependencies = [
+ "bracket-lib",
+ "legion",
 ]
 
 [[package]]
