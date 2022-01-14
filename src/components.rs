@@ -37,3 +37,6 @@ pub struct Health {
     pub max : i32
 }
 
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ChasingPlayer;
+
