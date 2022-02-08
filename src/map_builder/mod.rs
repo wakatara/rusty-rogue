@@ -6,6 +6,8 @@ mod automata;
 use automata::CellularAutomataArchitect;
 mod drunkard;
 use drunkard::DrunkardsWalkArchitect;
+mod prefab;
+use prefab::apply_prefab;
 
 trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
@@ -27,6 +29,7 @@ impl MapBuilder {
             _ => Box::new(CellularAutomataArchitect{})
         };
         let mut mb = architect.new(rng);
+        apply_prefab(&mut mb, rng);
         mb
     }
 
