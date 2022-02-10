@@ -72,6 +72,9 @@ impl FieldOfView {
     }
 }
 
+#[derive(Clone, PartialEq)]
+pub struct Carried(pub Entity);
+
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct ProvidesHealing{
     pub amount: i32
