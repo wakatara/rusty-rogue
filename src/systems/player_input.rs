@@ -4,7 +4,7 @@ use crate::prelude::*;
 #[write_component(Point)]
 #[read_component(Player)]
 #[read_component(Enemy)]
-#[write_component(Health)]  
+#[write_component(Health)] 
 #[read_component(Item)]
 #[read_component(Carried)]
 pub fn player_input(
