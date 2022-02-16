@@ -1,9 +1,9 @@
-use crate::prelude:*;
+use crate::prelude::*;
 use serde::Deserialize;
 use ron::de::from_reader;
 use std::fs::File;
 use std::collections::HashSet;
-use legions::systems::CommandBuffer;
+use legion::systems::CommandBuffer;
 
 // nb: we need every type in structs/enums to 
 // support deserialize for this to work
@@ -35,9 +35,7 @@ impl Templates {
         from_reader(file)
             .expect("Unable to load template")
     }
-}
 
-Impl Template {
     pub fn spawn_entities(
         &self,
         ecs: &mut World,
@@ -59,7 +57,7 @@ Impl Template {
     let mut commands = CommandBuffer::new(ecs);
     spawn_points.iter().for_each(|pt| {
         if let Some(entity) = rng.random_slice_entry(&available_entities) {
-            self.spawn_entity(pt, entiity, &mut commands);
+            self.spawn_entity(pt, entity, &mut commands);
         }
     });
     commands.flush(ecs);
@@ -96,16 +94,14 @@ Impl Template {
         if let Some(effects) = &template.provides {
             effects.iter().for_each(|(provides, n)| {
                 match provides.as_str() {
-                    "Healing" => commands.add_component(entity, ProvidesHealing{ amount, *n}),
+                    "Healing" => commands.add_component(entity, ProvidesHealing{ amount: *n}),
                     "MagicMap" => commands.add_component(entity, ProvidesDungeonMap{}),
                     _ => { println!("Warning: Dunno how to provide {}", provides);}
                 }
             });
         }
     }
-
-
-    }
+}
 
 
 

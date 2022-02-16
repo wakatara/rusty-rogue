@@ -1,4 +1,6 @@
 use crate::prelude::*;
+mod template;
+use template::Templates;
 
 pub fn spawn_player(ecs : &mut World, pos : Point) { 
     ecs.push(
@@ -27,6 +29,16 @@ pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
             Name("Amulet of Yala".to_string())
          )
     );
+}
+
+pub fn spawn_level(
+    ecs: &mut World,
+    rng: &mut RandomNumberGenerator,
+    level: usize,
+    spawn_points: &[Point]
+) {
+    let template = Templates::load();
+    template.spawn_entities(ecs, rng, level,spawn_points);
 }
 
 
